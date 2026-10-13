@@ -15,7 +15,9 @@ import { AccordionElement } from './accordion-element';
     <!-- self-closing of custom tags works -->
 
     <app-accordion
-      [elements]="accordionElements"/>
+      [elements]="accordionElements"s
+      [colour]="'lightgreen'"
+      [expandedColour]="'red'"/>
 
 <hr>
     <app-accordion

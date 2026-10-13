@@ -5,6 +5,8 @@ import { AccordionPanel } from '../accordion-panel/accordion-panel';
 
 
 /*
+10.37 - 10.47
+
 Exercise: make the expanded panel have a different colour
 for the heading
 
@@ -14,6 +16,8 @@ make the colours properties of the accordion
   [elements]="someElements"
   [colour]="lightblue"
   [expandedColour]="lightgreen"/>
+
+
 
 */
 
@@ -31,6 +35,8 @@ make the colours properties of the accordion
           [element]="element"
           [expanded]="expandedPanelIndex() == i"
           (clicked)="onClicked(i)"
+          [colour]="colour()"
+          [expandedColour]="expandedColour()"
           />
       }
     </div>
@@ -42,6 +48,8 @@ export class Accordion {
   expandedPanelIndex = signal<number>(0);
 
   elements = input<AccordionElement[]>();
+  colour = input<string>("lightgreen");
+  expandedColour = input<string>("lightcoral");
 
   onClicked(index:number) {
     //alert(`a panel ${index} was clicked`);
