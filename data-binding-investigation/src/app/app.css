@@ -1,0 +1,16 @@
+div {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.dark {
+  color: white;
+  background-color: black;
+}
+
+.light {
+  color: black;
+  background-color: white;
+
+}
