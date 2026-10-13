@@ -57,9 +57,7 @@ export class UsersPage {
   }
 
   onClick(id:number) {
-
     let user = this.userService.getUser(id);
     console.log(user);
   }
-
 }
