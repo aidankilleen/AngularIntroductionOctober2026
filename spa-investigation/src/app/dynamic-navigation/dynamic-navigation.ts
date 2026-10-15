@@ -25,5 +25,6 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 })
 export class DynamicNavigation {
 
-  navigationList = routes;
+  // remove items that don't have a title (user-details for example)
+  navigationList = routes.filter(route => route.title != '');
 }

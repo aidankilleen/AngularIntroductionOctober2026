@@ -5,6 +5,7 @@ import { ContactPage } from './contact-page/contact-page';
 import { HelpPage } from './help-page/help-page';
 import { AdminPage } from './admin-page/admin-page';
 import { UsersPage } from './users-page/users-page';
+import { UserDetailPage } from './user-detail-page/user-detail-page';
 
 export const routes: Routes = [
 
@@ -12,6 +13,7 @@ export const routes: Routes = [
   { path: 'about', title: "About", component: AboutPage },
   { path: 'contact', title: "Contact", component: ContactPage },
   { path: 'users', title: "Users", component: UsersPage },
+  { path: 'users/:id', title: "", component: UserDetailPage },
   { path: 'help', title: "Help", component: HelpPage },
   { path: 'admin', title: "Admin", component: AdminPage },
 
