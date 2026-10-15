@@ -20,4 +20,12 @@ export class UserService {
     return this.users.find(user => user.id == id);
   }
 
+  // C.R.U.D.
+  // Create
+  // Retrieve
+  // Update
+  // Delete
+
+
+
 }

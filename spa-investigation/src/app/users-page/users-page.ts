@@ -2,6 +2,7 @@ import { Component, signal } from '@angular/core';
 import User from '../user';
 import { JsonPipe } from '@angular/common';
 import { UserService } from '../user-service';
+import { UserHttpService } from '../user-http-service';
 
 @Component({
   imports: [JsonPipe],
@@ -50,14 +51,16 @@ export class UsersPage {
   // userService = new UserService();
   // userService:UserService;
 
-  constructor(private userService:UserService) {
+  constructor(private userService:UserHttpService) {
 
     // this.userService = userService;
-    this.users.set(this.userService.getUsers());
+    //this.users.set(this.userService.getUsers());
+    this.userService.getUsers()
+      .subscribe(users=>this.users.set(users));
   }
 
   onClick(id:number) {
-    let user = this.userService.getUser(id);
-    console.log(user);
+    //let user = this.userService.getUser(id);
+    //alert(JSON.stringify(user));
   }
 }

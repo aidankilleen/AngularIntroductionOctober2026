@@ -1,0 +1,17 @@
+{
+
+	"users": [ 
+		{ "id": 1, "name": "Zoe", "email": "zoe@gmail", "active": true }, 
+		{ "id": 2, "name": "Bob", "email": "bob@gmail", "active": false }, 
+		{ "id": 3, "name": "Carol", "email": "carol@gmail", "active": true }, 
+		{ "id": 4, "name": "Dan", "email": "dan@gmail", "active": false }, 
+		{ "id": 5, "name": "Alice", "email": "alice@gmail", "active": false } 
+ 
+	], 
+	"departments": [
+		{ "id":1, "name": "IT" }, 
+		{ "id":2, "name": "HR" }, 
+		{ "id":3, "name": "Sales" }, 
+		{ "id":4, "name": "Marketing" }
+	]
+}
