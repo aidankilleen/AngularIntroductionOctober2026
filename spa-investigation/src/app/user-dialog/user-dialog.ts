@@ -7,37 +7,39 @@ import { JsonPipe } from '@angular/common';
   selector: 'app-user-dialog',
   styleUrl: './user-dialog.css',
   template: `
-    <div>
-      @if (mode() == "add") {
-        <h3>Add User</h3>
-      } @else {
-        <h3>Update User</h3>
-      }
+    <div class="modal">
+      <div class="modal-content">
+        @if (mode() == "add") {
+          <h3>Add User</h3>
+        } @else {
+          <h3>Update User</h3>
+        }
 
-      Name:<input
-            [value]="editingUser().name"
-            (input) = "editingUser.update(
-            user => ({...user, name:txtName.value}))"
-            #txtName/><br>
+        Name:<input
+              [value]="editingUser().name"
+              (input) = "editingUser.update(
+              user => ({...user, name:txtName.value}))"
+              #txtName/><br>
 
-      Email:<input
-            [value]="editingUser().email"
-            (input) = "editingUser.update(
-            user => ({...user, email:txtEmail.value}))"
-            #txtEmail/><br>
+        Email:<input
+              [value]="editingUser().email"
+              (input) = "editingUser.update(
+              user => ({...user, email:txtEmail.value}))"
+              #txtEmail/><br>
 
-      Active:<input type="checkbox"
-            [checked]="editingUser().active"
-            (input) = "editingUser.update(
-            user => ({...user, active:chkActive.checked}))"
-            #chkActive/><br>
+        Active:<input type="checkbox"
+              [checked]="editingUser().active"
+              (input) = "editingUser.update(
+              user => ({...user, active:chkActive.checked}))"
+              #chkActive/><br>
 
-      <br>
-      <button (click)="onSave()">Save</button>
-      <button (click)="onCancel()">Cancel</button>
-      <hr>
-      {{ editingUser() | json }}<br>
-      {{ user() | json}}
+        <br>
+        <button (click)="onSave()">Save</button>
+        <button (click)="onCancel()">Cancel</button>
+        <hr>
+        {{ editingUser() | json }}<br>
+        {{ user() | json}}
+      </div>
     </div>
   `,
 })
