@@ -4,14 +4,26 @@ import { JsonPipe } from '@angular/common';
 import { UserService } from '../user-service';
 import { UserHttpService } from '../user-http-service';
 import { Router, RouterLink } from '@angular/router';
+import { UserDialog } from '../user-dialog/user-dialog';
 
 @Component({
-  imports: [JsonPipe, RouterLink],
+  imports: [JsonPipe, RouterLink, UserDialog],
   selector: 'app-users-page',
   styleUrl: './users-page.css',
   template: `
     <h2>Users</h2>
-    <button>Add User</button>
+    <button (click)="onAdd()">
+      Add User
+    </button>
+
+    @if(showDialog()) {
+      <app-user-dialog
+        [mode]="dialogMode()"
+        [user]="user()"
+        (cancel)="showDialog.set(false)"
+        (save)="onSave($event)"
+      />
+    }
     <table>
       <thead>
         <tr>
@@ -39,7 +51,11 @@ import { Router, RouterLink } from '@angular/router';
               >
                 Delete
               </button>
-              <button>Update</button>
+              <button
+                (click)="onUpdate(user)"
+              >
+                Update
+              </button>
             </td>
           </tr>
         }
@@ -52,7 +68,51 @@ import { Router, RouterLink } from '@angular/router';
 })
 export class UsersPage {
 
+  user = signal<User>(new User(-1, "", "", false));
+  showDialog = signal<boolean>(false);
+  dialogMode = signal<string>("update");
   users = signal<User[]>([]);
+
+  onAdd() {
+    this.user.set(new User(-1, "", "", false));
+    this.dialogMode.set("add");
+    this.showDialog.set(true);
+  }
+
+  onUpdate(user: User) {
+
+    this.user.set(user);
+    this.dialogMode.set("update");
+    this.showDialog.set(true);
+  }
+
+  onSave(user: User) {
+
+    if (this.dialogMode() == "add") {
+      this.userService.addUser(user)
+        .subscribe(
+          addedUser => {
+            this.users.update(
+              users => [...users, addedUser]
+            );
+            this.showDialog.set(false);
+          }
+        );
+    } else {
+      this.userService.updateUser(user)
+        .subscribe(
+          updatedUser => {
+
+            this.users.update(
+              users => users.map(
+                user => user.id == updatedUser.id ? updatedUser : user
+              ))
+            this.showDialog.set(false);
+          }
+        );
+    }
+  }
+
   // angular supports the IOC pattern
   // we don't instantiate a lot of our own objects
   // angular will instantiate objects for us

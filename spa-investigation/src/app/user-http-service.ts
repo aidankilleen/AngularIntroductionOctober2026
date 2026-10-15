@@ -45,4 +45,17 @@ export class UserHttpService {
     return this.http.delete<void>(`${this.url}/${id}`);
   }
 
+  addUser(user: User): Observable<User> {
+
+    // remove the id field from the user so that json server will
+    // assign a new id
+
+    const {id, ...userToAdd} = user;
+    return this.http.post<User>(this.url, userToAdd);
+  }
+
+  updateUser(user: User): Observable<User> {
+
+    return this.http.put<User>(`${this.url}/${user.id}`, user);
+  }
 }
