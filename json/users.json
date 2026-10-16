@@ -1,18 +1,6 @@
 {
   "users": [
     {
-      "id": 1,
-      "name": "Zoe",
-      "email": "zoe@gmail",
-      "active": true
-    },
-    {
-      "id": 2,
-      "name": "Bob",
-      "email": "bob@gmail",
-      "active": false
-    },
-    {
       "id": 3,
       "name": "Carol",
       "email": "carol@gmail",
@@ -25,22 +13,16 @@
       "active": false
     },
     {
-      "name": "Aidan",
-      "email": "aidan@gmail.com",
+      "name": "New User",
+      "email": "new.user@gmail.com",
+      "active": true,
+      "id": 5
+    },
+    {
+      "name": "Yvonne",
+      "email": "yvonne@gmail.com",
       "active": true,
       "id": 6
-    },
-    {
-      "name": "Johnny",
-      "email": "johnny@gmail.com",
-      "active": true,
-      "id": 7
-    },
-    {
-      "name": "Zoe",
-      "email": "zoe@gmail",
-      "active": true,
-      "id": 8
     }
   ],
   "departments": [
