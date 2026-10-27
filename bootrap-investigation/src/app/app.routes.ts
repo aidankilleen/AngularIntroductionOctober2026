@@ -9,6 +9,9 @@ import { CustomPipePage } from './custom-pipe-page/custom-pipe-page';
 import { DataBindingPage } from './data-binding-page/data-binding-page';
 import { FormsInvestigationPage } from './forms-investigation-page/forms-investigation-page';
 import { SignalsInvestigationPage } from './signals-investigation-page/signals-investigation-page';
+import { SignalFormsPage } from './signal-forms-page/signal-forms-page';
+import { WrapperInvestigationPage } from './wrapper-investigation-page/wrapper-investigation-page';
+import { BetterAccordionPage } from './better-accordion-page/better-accordion-page';
 
 export const routes: Routes = [
   { path:'', title:"Home", component: HomePage },
@@ -21,4 +24,7 @@ export const routes: Routes = [
   { path:'data-binding', title:"Data Binding", component: DataBindingPage },
   { path:'forms-investigation', title:"Forms", component: FormsInvestigationPage },
   { path:'signals-investigation', title:"Signals", component: SignalsInvestigationPage },
+  { path:'signals-forms', title:"Signal Forms", component: SignalFormsPage },
+  { path:'wrapper-investigation', title:"Wrapper Investigation", component: WrapperInvestigationPage },
+  { path:'better-accordion', title:"Better Accordion", component: BetterAccordionPage },
 ];

@@ -1,0 +1,57 @@
+<h2>Signal Form</h2>
+    <form
+      (submit)="onSubmit($event)"
+      novalidate
+    >
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input
+          class="form-control"
+          [formField]="userForm.name"
+          [class.is-invalid]="userForm.name().touched()
+                            && userForm.name().invalid()"
+        />
+        <div class="invalid-feedback">
+          @for (err of userForm.name().errors(); track err.kind) {
+            <div>{{ err.message }}</div>
+          }
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input
+          class="form-control"
+          [formField]="userForm.email"
+          [class.is-invalid]="userForm.email().touched()
+                            && userForm.email().invalid()"
+        />
+        <div class="invalid-feedback">
+          @for (err of userForm.email().errors(); track err.kind) {
+            <div>{{ err.message }}</div>
+          }
+        </div>
+      </div>
+      <div class="form-check mb-4">
+        <input
+          type="checkbox"
+          class="form-check-input"
+          [formField]="userForm.active"
+        />
+        <label
+          for="active"
+          class="form-check-label"
+        >
+          Active
+        </label>
+      </div>
+
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="userForm().invalid()"
+      >
+        Save
+      </button>
+    </form>
+
+    {{ user() | json }}
