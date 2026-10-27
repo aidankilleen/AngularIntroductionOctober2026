@@ -47,9 +47,10 @@ import { JsonPipe } from '@angular/common';
         Active
       </label>
     </div>
-
+<!-- #1 debugging tip - just look at the contents of an object in the template
       <hr>
         {{ editingUser() | json }}
+        -->
     </div>
     <div class="modal-footer">
       <button class="btn btn-primary"

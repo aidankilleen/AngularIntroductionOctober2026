@@ -23,6 +23,12 @@
       "email": "yvonne@gmail.com",
       "active": true,
       "id": 6
+    },
+    {
+      "name": "Zoe",
+      "email": "zoe@gmail.com",
+      "active": true,
+      "id": 7
     }
   ],
   "departments": [

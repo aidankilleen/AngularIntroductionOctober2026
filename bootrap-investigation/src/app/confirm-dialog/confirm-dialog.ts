@@ -28,6 +28,7 @@ export class ConfirmDialog {
 
   title = signal<string>("Confirm")
   message = signal<string>("Are you sure?");
+  
   activeModal = inject(NgbActiveModal);
 
 }

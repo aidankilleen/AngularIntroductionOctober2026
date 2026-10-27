@@ -70,7 +70,7 @@ export class UsersPage {
         },
         () => {
           // called if you cancel, press esc or click the background
-          alert("dialog dismissed");
+          // alert("dialog dismissed");
         });
   }
   ngOnInit() {
