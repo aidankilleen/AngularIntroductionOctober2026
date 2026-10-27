@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, computed, inject, input, signal } from '@angular/core';
+import { Accordion } from '../accordion/accordion';
 
 @Component({
   imports: [],
@@ -6,9 +7,27 @@ import { Component } from '@angular/core';
   styleUrl: './accordion-panel.css',
   template: `
     <div>
-      <h3>Accordion Panel</h3>
-      <ng-content/>
+      <div class="header"
+        (click)="accordion.toggle(this)"
+      >
+        {{ heading() }}
+
+        <span>{{ isOpen() ? '-' : '+' }}</span>
+      </div>
+      @if (isOpen()) {
+        <ng-content/>
+      }
     </div>
   `,
 })
-export class AccordionPanel {}
+export class AccordionPanel {
+  // isOpen = signal<boolean>(true);
+  isOpen = computed(
+    () => this.accordion.openPanel() === this
+  );
+  heading = input.required<string>();
+
+  protected accordion = inject(Accordion);
+
+
+}
